@@ -1,0 +1,24 @@
+{
+  "name": "no-bug-webpack-plugin",
+  "version": "1.0.1",
+  "description": "在终端里显示神兽保佑, 永无bug的信息",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xumengzi/xui-vue.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack-plugin",
+    "no-bug-webpack-plugin"
+  ],
+  "author": "xumeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xumengzi/xui-vue/issues"
+  },
+  "homepage": "https://xumengzi.github.io/xui-vue/book/index.html#/"
+}
