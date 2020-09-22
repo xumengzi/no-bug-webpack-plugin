@@ -1,8 +1,15 @@
 const pluginName = 'noBugWebpackPlugin';
 
 class noBugWebpackPlugin {
-  constructor() {
+  constructor(options) {
+    const defaultOptions = {
+      description: '神兽保佑       永无BUG!',
+      author: ''
+    }
+    this.opts = Object.assign({}, defaultOptions, options);
+    const { description, author } = this.opts;
     this.nobugs = `
+    
 #         ┌─┐       ┌─┐
 #      ┌──┘ ┴───────┘ ┴──┐
 #      │                 │
@@ -23,8 +30,9 @@ class noBugWebpackPlugin {
 #          └─┐  ┐  ┌───────┬──┐  ┌──┘
 #            │ ─┤ ─┤       │ ─┤ ─┤
 #            └──┴──┘       └──┴──┘
-#            神兽保佑       永无BUG!
-#   
+#            ${description}
+#
+#                   ${author ? 'created by ' + author : ''}
     `;
   }
   apply(compiler){

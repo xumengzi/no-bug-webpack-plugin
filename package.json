@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xumengzi/xui-vue.git"
+    "url": "git+https://github.com/xumengzi/no-bug-webpack-plugin.git"
   },
   "keywords": [
     "webpack",
@@ -18,7 +18,7 @@
   "author": "xumeng",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xumengzi/xui-vue/issues"
+    "url": "https://github.com/xumengzi/no-bug-webpack-plugin/issues"
   },
-  "homepage": "https://xumengzi.github.io/xui-vue/book/index.html#/"
+  "homepage": "https://github.com/xumengzi/no-bug-webpack-plugin"
 }
