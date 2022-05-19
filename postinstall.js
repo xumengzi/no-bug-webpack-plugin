@@ -18,8 +18,27 @@ var currVersion = '';
 var tips = '';
 
 // 获取安装前的版本号
-if (npm_lifecycle_event === 'preversion') {
-    prevVersion = version;
+if (npm_lifecycle_event === 'preinstall') {
+    try {
+        const data = fs.readFileSync('./package.json', 'utf8')
+        const json = JSON.parse(data);
+    
+        prevVersion = readPackageMuxVersion(json);
+        console.log(prevVersion)
+    
+    } catch (err) {
+        console.error(err)
+    }
+    
+    function readPackageMuxVersion(json) {
+        let version = '';
+        try {
+            version = json.devDependencies['@yxfe/mux-ui']
+        } catch (error) {
+            version = '获取失败，或者尚未安装@yxfe/mux-ui';
+        }
+        return version
+    }
 }
 
 // 获取安装后的版本号
