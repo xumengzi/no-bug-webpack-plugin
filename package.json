@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "echo 安装前",
-    "postinstall": "echo 安装后"
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
   },
   "repository": {
     "type": "git",
