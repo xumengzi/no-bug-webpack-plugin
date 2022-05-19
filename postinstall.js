@@ -3,50 +3,14 @@ var os = require('os');
 var path = require('path');
 var env = process.env;
 
-var ADBLOCK = is(env.ADBLOCK);
-var COLOR = is(env.npm_config_color);
-var DISABLE_OPENCOLLECTIVE = is(env.DISABLE_OPENCOLLECTIVE);
-var SILENT = ['silent', 'error', 'warn'].indexOf(env.npm_config_loglevel) !== -1;
-var OPEN_SOURCE_CONTRIBUTOR = is(env.OPEN_SOURCE_CONTRIBUTOR);
-var MINUTE = 60 * 1000;
+var packageName = env.npm_package_name;
+var version = env.npm_package_version;
 
-// you could add a PR with an env variable for your CI detection
-var CI = [
-  'BUILD_NUMBER',
-  'CI',
-  'CONTINUOUS_INTEGRATION',
-  'DRONE',
-  'RUN_ID'
-].some(function (it) { return is(env[it]); });
-
-var BANNER = '\u001B[96mThank you for using core-js (\u001B[94m https://github.com/zloirock/core-js \u001B[96m) for polyfilling JavaScript standard library!\u001B[0m\n\n' +
-             '\u001B[96mThe project needs your help! Please consider supporting of core-js:\u001B[0m\n' +
-             '\u001B[96m>\u001B[94m https://opencollective.com/core-js \u001B[0m\n' +
-             '\u001B[96m>\u001B[94m https://patreon.com/zloirock \u001B[0m\n' +
-             '\u001B[96m>\u001B[94m bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz \u001B[0m\n\n' +
-             '\u001B[96mAlso, the author of core-js (\u001B[94m https://github.com/zloirock \u001B[96m) is looking for a good job -)\u001B[0m\n';
-
-function is(it) {
-  return !!it && it !== '0' && it !== 'false';
-}
+var BANNER = '\u001B[96mwarning：您当前升级的版本存在break-change，请关注升级文档 (\u001B[94m https://km.sankuai.com/page/1316040376 \u001B[96m) 获取更多信息!\u001B[0m\n';
 
 function isBannerRequired() {
-  if (ADBLOCK || CI || DISABLE_OPENCOLLECTIVE || SILENT || OPEN_SOURCE_CONTRIBUTOR) return false;
-  var file = path.join(os.tmpdir(), 'core-js-banners');
-  var banners = [];
-  try {
-    var DELTA = Date.now() - fs.statSync(file).mtime;
-    if (DELTA >= 0 && DELTA < MINUTE * 3) {
-      banners = JSON.parse(fs.readFileSync(file));
-      if (banners.indexOf(BANNER) !== -1) return false;
-    }
-  } catch (error) {
-    banners = [];
-  }
-  try {
-    banners.push(BANNER);
-    fs.writeFileSync(file, JSON.stringify(banners), 'utf8');
-  } catch (error) { /* empty */ }
+    console.log(packageName, version);
+  if (packageName === 'mux-ui') {}
   return true;
 }
 
