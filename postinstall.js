@@ -12,51 +12,24 @@ var INIT_CWD = env.INIT_CWD;
 // npm的声明周期，详情：https://docs.npmjs.com/cli/v8/using-npm/scripts
 var npm_lifecycle_event = env.npm_lifecycle_event
 
-var prevVersion = '';
 var currVersion = '';
 
 var tips = '';
 
-// 获取安装前的版本号
-if (npm_lifecycle_event === 'preinstall') {
-    try {
-        const data = fs.readFileSync('./package.json', 'utf8')
-        const json = JSON.parse(data);
-    
-        prevVersion = readPackageMuxVersion(json);
-        console.log(prevVersion)
-    
-    } catch (err) {
-        console.error(err)
-    }
-    
-    function readPackageMuxVersion(json) {
-        let version = '';
-        try {
-            version = json.devDependencies['@yxfe/mux-ui']
-        } catch (error) {
-            version = '获取失败，或者尚未安装@yxfe/mux-ui';
-        }
-        return version
-    }
-}
-
-// 获取安装后的版本号
+// 获取安装后的版本号 0.1.0  0.2.0 0.3.1
 if (npm_lifecycle_event === 'postinstall') {
     currVersion = version;
+    if (currVersion.substring(currVersion.length - 1) === '0') {
+        isShowTips();
+    }
 }
 
 console.log('prevVersion', prevVersion);
 console.log('currVersion', currVersion);
 
 function isShowTips() {
-    if (prevVersion && currVersion){
-        if (prevVersion.substring(0,3) !== currVersion.substring(0,3)) {
-            tips = '\u001B[96mwarning：您当前升级的版本存在break-change，请关注升级文档 (\u001B[94m https://km.sankuai.com/page/1316040376 \u001B[96m) 获取更多信息!\u001B[0m\n';
-            console.log(tips.replace(/\u001B\[\d+m/g, ''));
-        }
-    }
+    tips = '\u001B[96mwarning：您当前升级的版本存在break-change，请关注升级文档 (\u001B[94m https://km.sankuai.com/page/1316040376 \u001B[96m) 获取更多信息!\u001B[0m\n';
+    console.log(tips.replace(/\u001B\[\d+m/g, ''));
 }
 
-isShowTips();
 
