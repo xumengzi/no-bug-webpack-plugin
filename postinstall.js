@@ -18,7 +18,7 @@ var currVersion = '';
 var tips = '';
 
 // 获取安装前的版本号
-if (npm_lifecycle_event === 'preinstall') {
+if (npm_lifecycle_event === 'preversion') {
     prevVersion = version;
 }
 
@@ -40,3 +40,4 @@ function isShowTips() {
 }
 
 isShowTips();
+

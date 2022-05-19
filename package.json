@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "echo 安装前",
+    "preversion": "node -e \"try{require('./postinstall')}catch(e){}\"",
+    "postversion": "version changed",
     "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
   },
   "repository": {
