@@ -32,7 +32,7 @@ if (npm_lifecycle_event === 'postinstall') {
 
 function isShowTips(description = '改动较多，请注意') {
     tips = `**************************************************************************************
-          \u001B[96mwarning：您当前升级的版本${currVersion}存在break-change：${description}，        
+          \u001B[96mwarning：您当前升级的版本是@${currVersion}存在break-change：${description}，        
           请关注升级文档 (\u001B[94m https://km.sankuai.com/page/1316040376 \u001B[96m) 获取更多信息!\u001B[0m 
 ************************************************************************************
 \n

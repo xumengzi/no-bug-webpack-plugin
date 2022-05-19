@@ -1,6 +1,6 @@
 {
   "name": "no-bug-webpack-plugin",
-  "version": "1.0.3",
+  "version": "1.2.3",
   "description": "在终端里显示神兽保佑, 永无bug的信息",
   "main": "index.js",
   "scripts": {
