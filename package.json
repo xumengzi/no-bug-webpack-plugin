@@ -1,10 +1,12 @@
 {
   "name": "no-bug-webpack-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "在终端里显示神兽保佑, 永无bug的信息",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "echo 安装前",
+    "postinstall": "echo 安装后"
   },
   "repository": {
     "type": "git",
