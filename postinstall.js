@@ -17,6 +17,8 @@ var currVersion = '';
 
 var tips = '';
 
+console.log(env)
+
 // 获取安装后的版本号 0.1.0  0.2.0 0.3.1
 if (npm_lifecycle_event === 'postinstall') {
     currVersion = version;
